@@ -1,0 +1,418 @@
+/* Meeting Assistant Overlay Styles */
+#meeting-assistant-overlay {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #333;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+/* Header */
+.ma-overlay-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    cursor: move;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ma-title {
+    font-size: 14px;
+    font-weight: 600;
+    flex: 1;
+}
+
+.ma-status {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 8px;
+    transition: all 0.2s ease;
+}
+
+.ma-status-active {
+    background: rgba(76, 175, 80, 0.9);
+    animation: pulse-status 1.5s infinite;
+}
+
+.ma-status-error {
+    background: rgba(244, 67, 54, 0.9);
+}
+
+@keyframes pulse-status {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.ma-controls {
+    display: flex;
+    gap: 4px;
+}
+
+.ma-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ma-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.ma-btn-small {
+    padding: 2px 6px;
+    font-size: 11px;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Content */
+.ma-content {
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.ma-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ma-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ma-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.ma-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Sections */
+.ma-section {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ma-section:last-child {
+    border-bottom: none;
+}
+
+.ma-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    padding: 8px 12px 6px;
+    background: rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Transcription */
+.ma-transcript {
+    padding: 8px 12px;
+    min-height: 60px;
+    max-height: 150px;
+    overflow-y: auto;
+    background: white;
+}
+
+.ma-transcript-placeholder {
+    color: #999;
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.ma-transcript-line {
+    margin-bottom: 6px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    word-wrap: break-word;
+    animation: slideInUp 0.3s ease;
+}
+
+.ma-transcript-line.ma-final {
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 3px solid #4caf50;
+}
+
+.ma-transcript-line.ma-current {
+    background: rgba(33, 150, 243, 0.1);
+    border-left: 3px solid #2196f3;
+    font-weight: 500;
+}
+
+.ma-transcript-line.ma-interim {
+    background: rgba(255, 193, 7, 0.1);
+    border-left: 3px solid #ffc107;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Translation */
+.ma-translated-text {
+    padding: 8px 12px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.ma-translation-item {
+    margin-bottom: 10px;
+    padding: 8px;
+    background: rgba(103, 58, 183, 0.05);
+    border-radius: 6px;
+    border-left: 3px solid #673ab7;
+    animation: slideInRight 0.3s ease;
+}
+
+.ma-original-text {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.ma-arrow {
+    text-align: center;
+    color: #673ab7;
+    font-size: 12px;
+    margin: 2px 0;
+}
+
+.ma-translated {
+    font-weight: 500;
+    color: #333;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Tasks */
+.ma-task-list {
+    padding: 8px 12px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.ma-task-item {
+    margin-bottom: 8px;
+    padding: 8px;
+    background: rgba(255, 152, 0, 0.08);
+    border-radius: 6px;
+    border-left: 3px solid #ff9800;
+    animation: slideInLeft 0.3s ease;
+}
+
+.ma-task-description {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.ma-task-meta {
+    font-size: 11px;
+    color: #666;
+    display: flex;
+    gap: 8px;
+}
+
+.ma-task-assignee {
+    color: #2196f3;
+    font-weight: 500;
+}
+
+.ma-task-priority {
+    padding: 1px 6px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.ma-task-priority.high {
+    background: rgba(244, 67, 54, 0.2);
+    color: #d32f2f;
+}
+
+.ma-task-priority.normal {
+    background: rgba(76, 175, 80, 0.2);
+    color: #388e3c;
+}
+
+.ma-task-priority.low {
+    background: rgba(158, 158, 158, 0.2);
+    color: #616161;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Notifications */
+.ma-notification {
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 10002 !important;
+    padding: 12px 20px !important;
+    border-radius: 6px !important;
+    color: white !important;
+    font-weight: 500 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    animation: notificationSlideIn 0.3s ease !important;
+}
+
+.ma-notification-info {
+    background: linear-gradient(135deg, #2196f3, #21cbf3) !important;
+}
+
+.ma-notification-error {
+    background: linear-gradient(135deg, #f44336, #ff6b60) !important;
+}
+
+.ma-notification-success {
+    background: linear-gradient(135deg, #4caf50, #8bc34a) !important;
+}
+
+@keyframes notificationSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+    #meeting-assistant-overlay {
+        width: 280px !important;
+        font-size: 12px;
+    }
+    
+    .ma-overlay-header {
+        padding: 8px 10px;
+    }
+    
+    .ma-title {
+        font-size: 13px;
+    }
+    
+    .ma-transcript {
+        max-height: 100px;
+    }
+    
+    .ma-translated-text,
+    .ma-task-list {
+        max-height: 80px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    #meeting-assistant-overlay {
+        background: rgba(30, 30, 30, 0.97);
+        color: #e0e0e0;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .ma-transcript {
+        background: rgba(40, 40, 40, 0.8);
+    }
+    
+    .ma-transcript-placeholder {
+        color: #999;
+    }
+    
+    .ma-transcript-line.ma-final {
+        background: rgba(76, 175, 80, 0.15);
+    }
+    
+    .ma-transcript-line.ma-current {
+        background: rgba(33, 150, 243, 0.15);
+        color: #e0e0e0;
+    }
+    
+    .ma-transcript-line.ma-interim {
+        background: rgba(255, 193, 7, 0.15);
+        color: #ccc;
+    }
+    
+    .ma-translation-item {
+        background: rgba(103, 58, 183, 0.15);
+    }
+    
+    .ma-task-item {
+        background: rgba(255, 152, 0, 0.15);
+    }
+}
+
+/* Animation improvements */
+* {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Focus states for accessibility */
+.ma-btn:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 1px;
+}
+
+/* Print styles */
+@media print {
+    #meeting-assistant-overlay {
+        display: none !important;
+    }
+}
