@@ -1,0 +1,81 @@
+# Meeting Transcription Backend Requirements
+# =========================================
+
+# Core Flask web framework
+flask==3.0.0
+flask-cors==4.0.0
+
+# Audio processing libraries
+librosa==0.10.1
+numpy==1.24.3
+webrtcvad==2.0.10
+soundfile==0.12.1
+
+# OpenAI Whisper for speech recognition
+openai-whisper==20231117
+
+# Machine Learning and NLP libraries
+torch==2.1.0
+torchvision==0.16.0
+torchaudio==2.1.0
+transformers[torch]==4.35.0
+sentence-transformers==2.2.2
+spacy==3.7.2
+
+# Language models for spaCy
+# Note: This will be downloaded automatically by the app
+# But you can install manually with: python -m spacy download en_core_web_sm
+
+# Translation models (Helsinki-NLP)
+# These will be downloaded automatically when needed
+# But you can pre-download them if desired
+
+# Additional ML utilities
+scikit-learn==1.3.2
+datasets==2.14.6
+
+# Audio format support
+pydub==0.25.1
+wave==0.0.2
+
+# Email support (built into Python)
+# smtplib (built-in)
+# email (built-in)
+
+# Utility libraries
+python-dateutil==2.8.2
+pytz==2023.3
+regex==2023.10.3
+
+# Configuration and JSON handling
+pyyaml==6.0.1
+
+# Optional: Better audio processing
+# ffmpeg-python==0.2.0  # Uncomment if needed
+
+# Development and testing (optional)
+pytest==7.4.3
+pytest-flask==1.3.0
+
+# Performance monitoring (optional)
+psutil==5.9.6
+
+# Note: Some packages may have different version requirements
+# If you encounter conflicts, try these alternative versions:
+# 
+# Alternative versions for compatibility:
+# torch==2.0.1
+# transformers==4.30.0
+# spacy==3.6.0
+# 
+# For CPU-only PyTorch (smaller installation):
+# --index-url https://download.pytorch.org/whl/cpu
+# torch==2.1.0+cpu
+# torchvision==0.16.0+cpu
+# torchaudio==2.1.0+cpu
+
+# Installation instructions:
+# 1. Create virtual environment: python -m venv venv
+# 2. Activate: venv\Scripts\activate (Windows) or source venv/bin/activate (Linux/Mac)
+# 3. Install: pip install -r requirements.txt
+# 4. Download spaCy model: python -m spacy download en_core_web_sm

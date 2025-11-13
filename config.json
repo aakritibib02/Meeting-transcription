@@ -1,0 +1,117 @@
+{
+  "whisper_model": "base",
+  "max_audio_length": 30,
+  "translation_cache_size": 1000,
+  "server": {
+    "host": "localhost",
+    "port": 5000,
+    "debug": false,
+    "cors_origins": ["chrome-extension://*", "http://localhost:*"]
+  },
+  "audio": {
+    "sample_rate": 16000,
+    "channels": 1,
+    "chunk_duration": 1.0,
+    "vad_mode": 3,
+    "silence_threshold": 0.01
+  },
+  "nlp": {
+    "spacy_model": "en_core_web_sm",
+    "sentence_model": "all-MiniLM-L6-v2",
+    "max_sentence_length": 512,
+    "min_task_length": 5
+  },
+  "translation": {
+    "default_source": "auto",
+    "default_target": "en",
+    "max_text_length": 1000,
+    "cache_enabled": true
+  },
+  "task_detection": {
+    "confidence_threshold": 0.6,
+    "max_context_length": 200,
+    "task_keywords": [
+      "need to", "have to", "must", "should", "will", "going to",
+      "action item", "task", "todo", "assignment", "follow up",
+      "deadline", "due date", "by when", "responsible for",
+      "deliverable", "milestone", "complete", "finish"
+    ],
+    "priority_keywords": {
+      "high": [
+        "urgent", "asap", "immediately", "critical", "high priority",
+        "emergency", "rush", "time-sensitive", "escalate"
+      ],
+      "low": [
+        "eventually", "when possible", "low priority", "nice to have",
+        "optional", "if time permits", "future consideration"
+      ]
+    },
+    "assignee_patterns": [
+      "@(\\w+)",
+      "(?:assign|assigned to|responsibility of)\\s+(\\w+)",
+      "(?:owner|responsible):\\s*(\\w+)",
+      "(\\w+)\\s+(?:will|should|needs to)\\s+(?:handle|do|complete)"
+    ]
+  },
+  "email": {
+    "enabled": true,
+    "smtp": {
+      "server": "smtp.gmail.com",
+      "port": 587,
+      "use_tls": true
+    },
+    "template": {
+      "subject": "Task Assignment: {task_description}",
+      "body_template": "task_assignment_template.txt"
+    }
+  },
+  "meeting": {
+    "auto_save": true,
+    "max_transcription_buffer": 1000,
+    "summary_min_length": 100,
+    "key_points_count": 5
+  },
+  "supported_languages": {
+    "en": "English",
+    "es": "Spanish",
+    "fr": "French",
+    "de": "German",
+    "it": "Italian",
+    "pt": "Portuguese",
+    "ru": "Russian",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "zh": "Chinese (Mandarin)",
+    "ar": "Arabic",
+    "hi": "Hindi",
+    "nl": "Dutch",
+    "sv": "Swedish",
+    "no": "Norwegian",
+    "da": "Danish",
+    "fi": "Finnish",
+    "pl": "Polish",
+    "cs": "Czech",
+    "hu": "Hungarian",
+    "tr": "Turkish"
+  },
+  "performance": {
+    "cpu_optimization": true,
+    "memory_limit_mb": 2048,
+    "max_concurrent_requests": 10,
+    "model_cache_size": 5,
+    "audio_processing_threads": 2
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "meeting_transcription.log",
+    "max_size_mb": 10,
+    "backup_count": 5,
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  },
+  "security": {
+    "max_file_size_mb": 50,
+    "allowed_audio_formats": [".wav", ".mp3", ".m4a", ".flac", ".aac"],
+    "rate_limit_per_minute": 100,
+    "session_timeout_minutes": 60
+  }
+}
